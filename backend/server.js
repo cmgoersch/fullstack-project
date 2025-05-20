@@ -9,8 +9,8 @@ const app = express()
 const PORT = 5500
 
 // middleware
-app.use(express.json())
 app.use(cors());
+app.use(express.json())
 
 // app.get('/', (req, res) => res.send('Hallo World'))
 
@@ -27,12 +27,17 @@ app.post("/login", (req, res) => {
   }
 });
 
-app.post("/todos", (req, res)=>{
-    const {userID} =req.body
-    const userTodos = todos.filter((todo) => todo.uID === userID)
-    res.json(userTodos)
-    
-})
+app.post("/todos", (req, res) => {
+  const { userID } = req.body;
+  const userTodos = todos.filter((todo) => todo.uID === userID);
+  res.json(userTodos);
+});
+
+app.post("/add-todo", (req, res) => {
+  const newTodo = req.body;
+  todos.push(newTodo);
+  res.status(201).json(newTodo);
+});
 
 app.listen(PORT, () => {
 console.log(`Server: http://localhost:${PORT}`)})
