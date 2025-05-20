@@ -1,13 +1,12 @@
-import { useNavigate } from "react-router";
-import "./Header.css";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router"; 
+import "./Header.css";
 
-const Header = ({ currentUser, setCurrentUser }) => {
+const Header = ({ currentUser, setCurrentUser, setUserTodos }) => {
   const navigate = useNavigate();
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [isLoggedIn, setIsLoggedIn] = useState(!!currentUser);
   const [errorMsg, setErrorMsg] = useState("");
 
   const handleLogin = async (e) => {
@@ -26,10 +25,22 @@ const Header = ({ currentUser, setCurrentUser }) => {
 
       if (response.ok && user?.username) {
         setCurrentUser(user);
-        setIsLoggedIn(true);
         setErrorMsg("");
         setUsername("");
         setPassword("");
+
+        if (setUserTodos) {
+          const todosRes = await fetch("http://localhost:5500/todos", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({ userID: user.userID }),
+});
+          const todos = await todosRes.json();
+          setUserTodos(todos);
+        }
+
         navigate("/dashboard");
       } else {
         setErrorMsg("Benutzername oder Passwort falsch");
@@ -40,12 +51,12 @@ const Header = ({ currentUser, setCurrentUser }) => {
     }
   };
 
-const handleLogout = () => {
-  console.log("🚪 Logging out...");
-  setCurrentUser(null);
-  setIsLoggedIn(false);
-  navigate("/");
-};
+  // Logout-Handler
+  const handleLogout = () => {
+    console.log("🚪 Logging out...");
+    setCurrentUser(null);
+    navigate("/");
+  };
 
   const goToDashboard = () => {
     navigate("/dashboard");
@@ -67,7 +78,7 @@ const handleLogout = () => {
       {errorMsg && <div className="popup-error">{errorMsg}</div>}
 
       <div className="log-wrapper">
-        {isLoggedIn ? (
+        {currentUser ? (
           <>
             <button className="dashboard-btn" onClick={goToDashboard}>
               Dashboard
