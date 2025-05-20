@@ -10,32 +10,47 @@ const Header = ({ currentUser, setCurrentUser }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(!!currentUser);
   const [errorMsg, setErrorMsg] = useState("");
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
 
-    if (username === "admin" && password === "1234") {
-      const user = { username };
-      setCurrentUser(user);
-      setIsLoggedIn(true);
-      setErrorMsg("");
-      setUsername("");
-      setPassword("");
-    } else {
-      setErrorMsg("Benutzername oder Passwort falsch");
+    try {
+      const response = await fetch("http://localhost:5500/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username, password }),
+      });
+
+      const user = await response.json();
+
+      if (response.ok && user?.username) {
+        setCurrentUser(user);
+        setIsLoggedIn(true);
+        setErrorMsg("");
+        setUsername("");
+        setPassword("");
+        navigate("/dashboard");
+      } else {
+        setErrorMsg("Benutzername oder Passwort falsch");
+      }
+    } catch (error) {
+      console.error("Login-Fehler:", error);
+      setErrorMsg("Serverfehler – bitte später erneut versuchen");
     }
   };
 
-  const handleLogout = () => {
-    setCurrentUser(null);
-    setIsLoggedIn(false);
-    navigate("/");
-  };
+const handleLogout = () => {
+  console.log("🚪 Logging out...");
+  setCurrentUser(null);
+  setIsLoggedIn(false);
+  navigate("/");
+};
 
   const goToDashboard = () => {
     navigate("/dashboard");
   };
 
-  // Popup auto-clear after 3 seconds
   useEffect(() => {
     if (errorMsg) {
       const timeout = setTimeout(() => {
@@ -47,7 +62,7 @@ const Header = ({ currentUser, setCurrentUser }) => {
 
   return (
     <header className="header-wrapper">
-      <h2 className="logo">WHEREMYHEADAT?</h2>
+      <h2 className="logo">Where is my data?</h2>
 
       {errorMsg && <div className="popup-error">{errorMsg}</div>}
 
