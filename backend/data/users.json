@@ -12,5 +12,12 @@
     "password": "LoginPW123!",
     "firstname": "Lisa",
     "lastname": "Lustig"
+  },
+    {
+    "userID": "u3",
+    "username": "Calle",
+    "password": "12345",
+    "firstname": "Calle",
+    "lastname": "Läuft"
   }
 ]
