@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Kochen mit Jochen",
+    "uID": "u1",
+    "text": "Müsli kochen mit Jochen",
+    "state": false
+  },
+  {
+    "title": "Oma Erna´s B-Day",
+    "uID": "u2",
+    "text": "Kukident-Torte abholen",
+    "state": false
+  },
+  {
+    "title": "Malte fahren",
+    "uID": "u1",
+    "text": "Malte möchte Dinkelbrot kaufen.",
+    "state": false
+  },
+  {
+    "title": "Kleber kaufen",
+    "uID": "u4",
+    "text": "Die kleine Tina brauche Kleber für ein Schulprojekt auf der A1",
+    "state": false
+  },
+  {
+    "title": "Learning 4.0",
+    "uID": "u2",
+    "text": "Wecker stellen um Feierabend nicht zu verpassen!",
+    "state": false
+  }
+]

@@ -1,0 +1,22 @@
+###
+
+POST http://localhost:5500/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "username":"MaMu",
+    "password": "LoginPW123!"
+}
+
+###
+
+POST http://localhost:5500/todos HTTP/1.1
+Content-Type: application/json
+
+  {
+    "userID": "u1",
+    "username": "MaMu",
+    "password": "LoginPW123!",
+    "firstname": "Max",
+    "lastname": "Mustermann"
+  }
