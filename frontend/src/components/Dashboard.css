@@ -1,16 +1,76 @@
-.new-todo-form {
+.dashboard {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #1e293b;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+h2 {
   margin-top: 2rem;
+  font-size: 1.5rem;
+  color: #334155;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+li {
+  background: #f8fafc;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+li p {
+  margin: 0.5rem 0 0;
+  color: #475569;
+}
+
+li button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: #dc2626;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+li button:hover {
+  background-color: #b91c1c;
+}
+
+.new-todo-form {
+  margin-top: 3rem;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  max-width: 400px;
+  gap: 1rem;
+  background-color: #f1f5f9;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .new-todo-form input {
-  padding: 8px;
+  padding: 10px;
   font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  outline-color: #3b82f6;
 }
 
 .new-todo-form button {
@@ -19,24 +79,75 @@
   background-color: #3b82f6;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
 }
 
 .new-todo-form button:hover {
   background-color: #2563eb;
 }
 
-button {
-  margin-top: 4px;
-  padding: 4px 8px;
-  border: none;
-  background-color: #dc2626;
-  color: white;
-  border-radius: 4px;
-  cursor: pointer;
+.completed {
+  background-color: #e0f7e9;
+  text-decoration: line-through;
+  color: #6b7280;
 }
 
-button:hover {
+input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+
+li input[type="text"] {
+  margin: 0.3rem 0;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.todo-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.todo-actions button {
+  position: static;
+  
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.btn-edit {
+  background-color: #f97316;
+}
+.btn-edit:hover {
+  background-color: #ea580c;
+}
+
+.btn-delete {
+  background-color: #dc2626;
+}
+.btn-delete:hover {
   background-color: #b91c1c;
+}
+
+.btn-save {
+  background-color: #3b82f6;
+}
+.btn-save:hover {
+  background-color: #2563eb;
+}
+
+.btn-cancel {
+  background-color: #e5e7eb;
+  color: #1f2937;
+}
+.btn-cancel:hover {
+  background-color: #d1d5db;
+ color: #1f2937;
 }
