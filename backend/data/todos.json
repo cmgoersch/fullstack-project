@@ -36,10 +36,24 @@
     "state": false
   },
   {
-    "id": 1747748362161,
+    "id": 1747814033262,
     "uID": "u3",
-    "title": "Boa ey",
-    "text": "Hi na",
+    "title": "Toggle-Funktion",
+    "text": "Baue eine Toggle Funktion ein der Zeigt ob der Task erledigt ist",
+    "state": true
+  },
+  {
+    "id": 1747814078379,
+    "uID": "u3",
+    "title": "Bearbeitungsfunktion",
+    "text": "To-Dos sollen nach dem Hinzufügen bearbeitet werden können",
+    "state": false
+  },
+  {
+    "id": 1747815006725,
+    "uID": "u3",
+    "title": "Das ist der Neue",
+    "text": "Hier sollte was anderes stehen",
     "state": false
   }
 ]

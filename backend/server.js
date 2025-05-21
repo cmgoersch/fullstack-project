@@ -80,6 +80,29 @@ app.delete("/delete-todo/:id", (req, res) => {
   res.json({ message: "Todo gelöscht", id: todoId });
 })
 
+//Dateien ändern
+
+app.patch("/update-todo/:id", (req, res) => {
+  const todoId = parseInt(req.params.id);
+  const { title, text, state } = req.body;
+
+  const todos = loadTodos();
+  const index = todos.findIndex((t) => t.id === todoId);
+
+  if (index === -1) {
+    return res.status(404).json({ message: "Todo nicht gefunden" });
+  }
+
+  // Werte aktualisieren, falls vorhanden
+  if (title !== undefined) todos[index].title = title;
+  if (text !== undefined) todos[index].text = text;
+  if (state !== undefined) todos[index].state = state;
+
+  saveTodos(todos);
+
+  res.json({ message: "Todo aktualisiert", todo: todos[index] });
+});
+
 // Server starten
 app.listen(PORT, () => {
   console.log(`✅ Server läuft auf http://localhost:${PORT}`);

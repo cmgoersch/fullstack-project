@@ -151,3 +151,29 @@ li input[type="text"] {
   background-color: #d1d5db;
  color: #1f2937;
 }
+
+.todo-checkbox {
+  width: 18px;
+  height: 18px;
+  appearance: none;
+  border: 2px solid #cbd5e1;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.2s ease-in-out, border-color 0.2s;
+}
+
+.todo-checkbox:checked {
+  background-color: #10b981;
+  border-color: #10b981;
+}
+
+.todo-checkbox:checked::after {
+  content: "✔";
+  color: white;
+  font-size: 12px;
+  position: absolute;
+  top: -0px;
+  left: 2px;
+}

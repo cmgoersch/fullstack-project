@@ -134,10 +134,11 @@ const saveEdit = async () => {
           {todos.map((todo) => (
             <li key={todo.id} className={todo.state ? "completed" : ""}>
               <input
-                type="checkbox"
-                checked={todo.state}
-                onChange={() => toggleState(todo.id)}
-              />
+  type="checkbox"
+  checked={todo.state}
+  onChange={() => toggleState(todo.id)}
+  className="todo-checkbox"
+/>
               {editTodoId === todo.id ? (
   <>
     <input
