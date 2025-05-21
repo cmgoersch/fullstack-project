@@ -19,5 +19,12 @@
     "password": "12345",
     "firstname": "Calle",
     "lastname": "Läuft"
+  },
+      {
+    "userID": "u4",
+    "username": "Fridolin",
+    "password": "12345",
+    "firstname": "Fridolin",
+    "lastname": "Bummelbär"
   }
 ]

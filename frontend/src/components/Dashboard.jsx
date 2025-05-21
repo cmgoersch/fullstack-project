@@ -8,6 +8,7 @@ const Dashboard = ({ currentUser, userTodos }) => {
   const [editTodoId, setEditTodoId] = useState(null);
   const [editTitle, setEditTitle] = useState("");
   const [editText, setEditText] = useState("");
+  const [showForm, setShowForm] = useState(false);
 
   const addNewTodo = async (e) => {
     e.preventDefault();
@@ -33,6 +34,7 @@ const Dashboard = ({ currentUser, userTodos }) => {
         setTodos([...todos, result.todo]);
         setNewTitle("");
         setNewText("");
+        setShowForm(false);
       }
     } catch (error) {
       console.error("Fehler beim Speichern:", error);
@@ -127,11 +129,32 @@ const saveEdit = async () => {
   return (
     <div className="dashboard">
       <h1>Willkommen, {currentUser?.username}!</h1>
-
+<button className="btn-new-todo" onClick={() => setShowForm(!showForm)}>
+  {showForm ? "Abbrechen" : "Neues To-Do erstellen"}
+</button>
+{showForm && (
+  <form onSubmit={addNewTodo} className="new-todo-form">
+    <h3>Neues To-Do anlegen</h3>
+    <input
+      type="text"
+      placeholder="Titel"
+      value={newTitle}
+      onChange={(e) => setNewTitle(e.target.value)}
+      required
+    />
+    <input
+      type="text"
+      placeholder="Beschreibung (optional)"
+      value={newText}
+      onChange={(e) => setNewText(e.target.value)}
+    />
+    <button type="submit">Hinzufügen</button>
+  </form>
+)}
       <h2>Deine Todos:</h2>
       {todos.length > 0 ? (
         <ul>
-          {todos.map((todo) => (
+          {[...todos].reverse().map((todo) =>  (
             <li key={todo.id} className={todo.state ? "completed" : ""}>
               <input
   type="checkbox"
@@ -172,24 +195,6 @@ const saveEdit = async () => {
       ) : (
         <p>Keine Todos vorhanden.</p>
       )}
-
-      <form onSubmit={addNewTodo} className="new-todo-form">
-        <h3>Neues To-Do anlegen</h3>
-        <input
-          type="text"
-          placeholder="Titel"
-          value={newTitle}
-          onChange={(e) => setNewTitle(e.target.value)}
-          required
-        />
-        <input
-          type="text"
-          placeholder="Beschreibung (optional)"
-          value={newText}
-          onChange={(e) => setNewText(e.target.value)}
-        />
-        <button type="submit">Hinzufügen</button>
-      </form>
     </div>
   );
 };

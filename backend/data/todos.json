@@ -3,37 +3,36 @@
     "title": "Kochen mit Jochen",
     "uID": "u1",
     "text": "Müsli kochen mit Jochen",
-    "state": false
+    "state": false,
+    "id": 1747816142008
   },
   {
     "title": "Oma Erna´s B-Day",
     "uID": "u2",
     "text": "Kukident-Torte abholen",
-    "state": false
+    "state": false,
+    "id": 1747816142009
   },
   {
     "title": "Malte fahren",
     "uID": "u1",
     "text": "Malte möchte Dinkelbrot kaufen.",
-    "state": false
+    "state": false,
+    "id": 1747816142010
   },
   {
     "title": "Kleber kaufen",
     "uID": "u4",
     "text": "Die kleine Tina brauche Kleber für ein Schulprojekt auf der A1",
-    "state": false
+    "state": false,
+    "id": 1747816142011
   },
   {
     "title": "Learning 4.0",
     "uID": "u2",
     "text": "Wecker stellen um Feierabend nicht zu verpassen!",
-    "state": false
-  },
-  {
-    "title": "Learning 4.0",
-    "uID": "u3",
-    "text": "Wecker stellen um Feierabend nicht zu verpassen!",
-    "state": false
+    "state": false,
+    "id": 1747816142012
   },
   {
     "id": 1747814033262,
@@ -47,13 +46,55 @@
     "uID": "u3",
     "title": "Bearbeitungsfunktion",
     "text": "To-Dos sollen nach dem Hinzufügen bearbeitet werden können",
-    "state": false
+    "state": true
   },
   {
     "id": 1747815006725,
     "uID": "u3",
     "title": "Das ist der Neue",
-    "text": "Hier sollte was anderes stehen",
+    "text": "Es ist machbar die Todos zu ändern",
+    "state": false
+  },
+  {
+    "id": 1747817100285,
+    "uID": "u3",
+    "title": "Toggle-Design",
+    "text": "Das design des Toggles gefällt mir noch nicht",
+    "state": false
+  },
+  {
+    "id": 1747819097990,
+    "uID": "u4",
+    "title": "Eier kaufen",
+    "text": "Fridolin will endlich Pfannkuchen machen",
+    "state": false
+  },
+  {
+    "id": 1747819114039,
+    "uID": "u4",
+    "title": "Katzenvideo drehen",
+    "text": "Oscar springt bestimmt wieder in die Obstschale",
+    "state": false
+  },
+  {
+    "id": 1747819130360,
+    "uID": "u4",
+    "title": "Frühstück mit Oma",
+    "text": "Brötchen holen nicht vergessen",
+    "state": true
+  },
+  {
+    "id": 1747819146554,
+    "uID": "u4",
+    "title": "Blumen gießen",
+    "text": "Die Monstera winkt schon",
+    "state": false
+  },
+  {
+    "id": 1747819167672,
+    "uID": "u4",
+    "title": "Email schreiben",
+    "text": "Antwort an die WG schreiben wegen Einzug",
     "state": false
   }
 ]
